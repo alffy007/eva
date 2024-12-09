@@ -67,7 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: Colors.black12,
+        backgroundColor: const Color(0xfff4f4f4),
         appBar: AppBar(
           // TRY THIS: Try changing the color here to a specific color (to
           // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
@@ -81,28 +81,41 @@ class _MyHomePageState extends State<MyHomePage> {
         body: Row(
           children: [
             Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: screenWidth / 2, // Half of the screen width
-                height: screenHeight / 2, // Full screen height
-                decoration: BoxDecoration(
-                  color: Colors.white, // Terminal background colorS
-                  borderRadius: BorderRadius.circular(8), // Rounded corners
-                ),
-                child: const Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: SingleChildScrollView(
-                    child: Text(
-                      '> Welcome to the Flutter Terminal\n> Type your commands here...',
-                      style: TextStyle(
-                        fontFamily:
-                            'Courier', // Monospace font for terminal feel
-                        color: Colors.greenAccent, // Text color
-                        fontSize: 14,
+              padding: const EdgeInsets.only(left: 16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Activities",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                  ),
+                  Container(
+                    width: screenWidth / 2, // Half of the screen width
+                    height: screenHeight / 2, // Full screen height
+                    decoration: BoxDecoration(
+                      color: Colors.white, // Terminal background colorS
+                      borderRadius: BorderRadius.circular(8), // Rounded corners
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: SingleChildScrollView(
+                        child: Text(
+                          '> Welcome to the Flutter Terminal\n> Type your commands here...',
+                          style: TextStyle(
+                            fontFamily:
+                                'Courier', // Monospace font for terminal feel
+                            color: Colors.greenAccent, // Text color
+                            fontSize: 14,
+                          ),
+                        ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
             ),
           ],
