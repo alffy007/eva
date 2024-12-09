@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xfff4f4f4),
         elevation: 2,
         title: Text(
           widget.title,
@@ -49,7 +49,6 @@ class _MyHomePageState extends State<MyHomePage> {
             color: Colors.black,
           ),
         ),
-        centerTitle: true,
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -87,61 +86,40 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: Padding(
                       padding: const EdgeInsets.all(16.0),
                       child: ListView(children: [
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
-                        ),
-                        Text(
-                          'Studying ASIC Design flow',
-                          style: GoogleFonts.poppins(
-                            color: Colors.black54,
-                            fontSize: 14,
-                          ),
+                        buildListCard(
+                          "Studying ASIC Design Flow",
+                          Icons.design_services,
+                          Colors.blue,
                         ),
                       ]),
                     ),
@@ -217,6 +195,42 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildListCard(String text, IconData icon, Color color) {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 24,
+            backgroundColor: color.withOpacity(0.2),
+            child: Icon(
+              icon,
+              size: 24,
+              color: color,
+            ),
+          ),
+          const SizedBox(width: 16),
+          Expanded(
+            child: Text(
+              text,
+              style: GoogleFonts.poppins(
+                color: Colors.black87,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
