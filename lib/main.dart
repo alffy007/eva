@@ -36,6 +36,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       backgroundColor: const Color(0xfff4f4f4),
       appBar: AppBar(
@@ -55,7 +56,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // Left Sidebar (Terminal)
+            // Left Sidebar (Activities)
             Expanded(
               flex: 2,
               child: Column(
@@ -69,68 +70,43 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  Container(
-                    height: screenHeight * 0.75,
-                    width: 400,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.shade300,
-                          blurRadius: 8,
-                          offset: const Offset(0, 4),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade300,
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: ListView(
+                          children: List.generate(
+                            7,
+                            (index) => buildListCard(
+                              "Studying ASIC Design Flow",
+                              Icons.design_services,
+                              Colors.blue,
+                            ),
+                          ),
                         ),
-                      ],
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(16.0),
-                      child: ListView(children: [
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                        buildListCard(
-                          "Studying ASIC Design Flow",
-                          Icons.design_services,
-                          Colors.blue,
-                        ),
-                      ]),
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 16),
-            // Right Content (Cards)
+            // Right Content (Metrics)
+            const SizedBox(
+              width: 16,
+            ),
             Expanded(
-              flex: 5,
+              flex: 4,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -144,9 +120,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   const SizedBox(height: 16),
                   Expanded(
                     child: GridView.count(
-                      crossAxisCount: screenWidth > 800
-                          ? 3
-                          : 2, // Adjust grid for screen size
+                      crossAxisCount: screenWidth > 800 ? 3 : 2,
                       crossAxisSpacing: 16,
                       mainAxisSpacing: 16,
                       childAspectRatio: 1.2,
@@ -164,22 +138,10 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.green,
                         ),
                         _buildMetricCard(
-                          title: "Emotion Detection",
-                          value: "Happy",
-                          icon: Icons.emoji_emotions,
-                          color: Colors.orange,
-                        ),
-                        _buildMetricCard(
                           title: "Focus Time",
                           value: "3h 45m",
                           icon: Icons.access_time,
                           color: Colors.purple,
-                        ),
-                        _buildMetricCard(
-                          title: "Break Time",
-                          value: "1h 15m",
-                          icon: Icons.coffee,
-                          color: Colors.brown,
                         ),
                         _buildMetricCard(
                           title: "Distractions",
@@ -188,6 +150,54 @@ class _MyHomePageState extends State<MyHomePage> {
                           color: Colors.redAccent,
                         ),
                       ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            // Study Notes Section
+            const SizedBox(
+              width: 16,
+            ),
+            Expanded(
+              flex: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Study Notes",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(12),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.shade300,
+                            blurRadius: 8,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: ListView(
+                          children: List.generate(
+                            7,
+                            (index) => buildListCard(
+                              "Topic $index",
+                              Icons.note,
+                              Colors.orange,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ],
