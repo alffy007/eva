@@ -8,29 +8,14 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Student Progress Dashboard',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // TRY THIS: Try running your application with "flutter run". You'll see
-        // the application has a purple toolbar. Then, without quitting the app,
-        // try changing the seedColor in the colorScheme below to Colors.green
-        // and then invoke "hot reload" (save your changes or press the "hot
-        // reload" button in a Flutter-supported IDE, or press "r" if you used
-        // the command line to start the app).
-        //
-        // Notice that the counter didn't reset back to zero; the application
-        // state is not lost during the reload. To reset the state, use hot
-        // restart instead.
-        //
-        // This works for code too, not just values: Most code changes can be
-        // tested with just a hot reload.
         useMaterial3: true,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
       ),
       home: const MyHomePage(title: 'EVA-01 Student Progress'),
     );
@@ -39,15 +24,6 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
-
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
 
   final String title;
 
@@ -58,32 +34,32 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
     final screenWidth = MediaQuery.of(context).size.width;
     final screenHeight = MediaQuery.of(context).size.height;
     return Scaffold(
-        backgroundColor: const Color(0xfff4f4f4),
-        appBar: AppBar(
-          // TRY THIS: Try changing the color here to a specific color (to
-          // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
-          // change color while the other colors stay the same.
-          backgroundColor: Colors.white,
-          // Here we take the value from the MyHomePage object that was created by
-          // the App.build method, and use it to set our appbar title.
-          title: Text(widget.title,
-              style: GoogleFonts.poppins(fontWeight: FontWeight.w600)),
+      backgroundColor: const Color(0xfff4f4f4),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 2,
+        title: Text(
+          widget.title,
+          style: GoogleFonts.poppins(
+            fontWeight: FontWeight.w600,
+            fontSize: 20,
+            color: Colors.black,
+          ),
         ),
-        body: Row(
+        centerTitle: true,
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 16),
+            // Left Sidebar (Terminal)
+            Expanded(
+              flex: 2,
               child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -93,32 +69,207 @@ class _MyHomePageState extends State<MyHomePage> {
                       fontSize: 24,
                     ),
                   ),
+                  const SizedBox(height: 16),
                   Container(
-                    width: screenWidth / 2, // Half of the screen width
-                    height: screenHeight / 2, // Full screen height
+                    height: screenHeight * 0.75,
+                    width: 400,
                     decoration: BoxDecoration(
-                      color: Colors.white, // Terminal background colorS
-                      borderRadius: BorderRadius.circular(8), // Rounded corners
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(12),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.grey.shade300,
+                          blurRadius: 8,
+                          offset: const Offset(0, 4),
+                        ),
+                      ],
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.all(8.0),
-                      child: SingleChildScrollView(
-                        child: Text(
-                          '> Welcome to the Flutter Terminal\n> Type your commands here...',
-                          style: TextStyle(
-                            fontFamily:
-                                'Courier', // Monospace font for terminal feel
-                            color: Colors.greenAccent, // Text color
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: ListView(children: [
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
                             fontSize: 14,
                           ),
                         ),
-                      ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                        Text(
+                          'Studying ASIC Design flow',
+                          style: GoogleFonts.poppins(
+                            color: Colors.black54,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ]),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(width: 16),
+            // Right Content (Cards)
+            Expanded(
+              flex: 5,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    "Metrics Overview",
+                    style: GoogleFonts.poppins(
+                      fontWeight: FontWeight.w600,
+                      fontSize: 24,
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: screenWidth > 800
+                          ? 3
+                          : 2, // Adjust grid for screen size
+                      crossAxisSpacing: 16,
+                      mainAxisSpacing: 16,
+                      childAspectRatio: 1.2,
+                      children: [
+                        _buildMetricCard(
+                          title: "Attention Span",
+                          value: "85%",
+                          icon: Icons.visibility,
+                          color: Colors.blueAccent,
+                        ),
+                        _buildMetricCard(
+                          title: "Activity Levels",
+                          value: "Moderate",
+                          icon: Icons.directions_run,
+                          color: Colors.green,
+                        ),
+                        _buildMetricCard(
+                          title: "Emotion Detection",
+                          value: "Happy",
+                          icon: Icons.emoji_emotions,
+                          color: Colors.orange,
+                        ),
+                        _buildMetricCard(
+                          title: "Focus Time",
+                          value: "3h 45m",
+                          icon: Icons.access_time,
+                          color: Colors.purple,
+                        ),
+                        _buildMetricCard(
+                          title: "Break Time",
+                          value: "1h 15m",
+                          icon: Icons.coffee,
+                          color: Colors.brown,
+                        ),
+                        _buildMetricCard(
+                          title: "Distractions",
+                          value: "Low",
+                          icon: Icons.block,
+                          color: Colors.redAccent,
+                        ),
+                      ],
                     ),
                   ),
                 ],
               ),
             ),
           ],
-        ));
+        ),
+      ),
+    );
+  }
+
+  Widget _buildMetricCard({
+    required String title,
+    required String value,
+    required IconData icon,
+    required Color color,
+  }) {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.shade300,
+            blurRadius: 10,
+            offset: const Offset(0, 6),
+          ),
+        ],
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            CircleAvatar(
+              backgroundColor: color.withOpacity(0.2),
+              child: Icon(icon, color: color),
+            ),
+            const SizedBox(height: 16),
+            Text(
+              title,
+              style: GoogleFonts.poppins(
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+                color: Colors.grey.shade800,
+              ),
+            ),
+            const SizedBox(height: 8),
+            Text(
+              value,
+              style: GoogleFonts.poppins(
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+                color: color,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
